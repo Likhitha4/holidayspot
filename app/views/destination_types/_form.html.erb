@@ -1,0 +1,31 @@
+<%= form_for(@destination_type) do |f| %>
+  <% if @destination_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@destination_type.errors.count, "error") %> prohibited this destination_type from being saved:</h2>
+
+      <ul>
+      <% @destination_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :destination_id %><br>
+    <%= f.collection_check_boxes :destination_id, Destination.all, :id, :title do |b| %>
+    <%= b.check_box %>
+    <%= b.label %><br/>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :destination_category_id %><br>
+    <%= f.collection_check_boxes :destination_category_id, DestinationCategory.all, :id, :name do |b| %>
+    <%= b.check_box %>
+    <%= b.label %><br/>
+    <% end %> 
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

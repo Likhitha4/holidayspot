@@ -1,0 +1,44 @@
+<%= form_for(@destination) do |f| %>
+  <% if @destination.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@destination.errors.count, "error") %> prohibited this destination from being saved:</h2>
+
+      <ul>
+      <% @destination.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :city_id %><br>
+    <%= f.collection_select :city_id, City.all, :id, :name, {prompt: "select city"} %><br/>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+
+  <div class= "field">
+  <label>DestinationCategories</label><br/>
+  <%= f.collection_check_boxes :destination_category_ids, DestinationCategory.all, :id, :name do |b| %>
+  <%= b.check_box %>
+  <%= b.label %>
+  <br/>
+   <% end %>
+    
+
+    
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

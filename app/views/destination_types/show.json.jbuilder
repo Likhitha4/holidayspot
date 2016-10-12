@@ -1,0 +1,1 @@
+json.partial! "destination_types/destination_type", destination_type: @destination_type

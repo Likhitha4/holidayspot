@@ -1,0 +1,1 @@
+json.array! @destination_types, partial: 'destination_types/destination_type', as: :destination_type

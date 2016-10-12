@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+Name :
+<% @destination.destination_categories.each do |category| %>
+<%= category.name %>
+<% end %>
+<p>
+  <strong>Title:</strong>
+  <%= @destination.title %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @destination.city_id %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @destination.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @destination.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_destination_path(@destination) %> |
+<%= link_to 'Back', destinations_path %>

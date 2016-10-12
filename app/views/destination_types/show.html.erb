@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+<p>
+  <strong>Destination:</strong>
+  <%= @destination_type.destination_category_id %>
+</p>
+
+<p>
+  <strong>Destination category:</strong>
+  <%= @destination_type.destination_category_id %>
+</p>
+
+<%= link_to 'Edit', edit_destination_type_path(@destination_type) %> |
+<%= link_to 'Back', destination_types_path %>
